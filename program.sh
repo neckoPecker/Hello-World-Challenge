@@ -8,8 +8,11 @@ clang++ -v -fverbose-asm -o ./cpp/program ./cpp/main.cxx
 PASS_CPP=$(./cpp/program $PASS_C)
 rm ./cpp/program
 
+# Pascal
+PASS_PASCAL==$(./pascal/program $PASS_CPP)
+
 # Python
-PASS_PYTHON=$(python -v ./python/main.py $PASS_CPP)
+PASS_PYTHON=$(python -v ./python/main.py $PASS_PASCAL)
 
 # Rust
 rustc -v -o ./rust/program ./rust/main.rs
