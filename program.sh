@@ -11,12 +11,9 @@ rm ./cpp/program
 # Python
 PASS_PYTHON=$(python -v ./python/main.py $PASS_CPP)
 
-# Javascript
-PASS_JS=$(node ./js/main.js $PASS_PYTHON)
-
 # Rust
 rustc -v -o ./rust/program ./rust/main.rs
-PASS_RUST=$(./rust/program Hello World!)
+PASS_RUST=$(./rust/program $PASS_PYTHONG)
 rm ./rust/program
 
 # Fortran
@@ -36,4 +33,7 @@ PASS_BASH=$(echo $PASS_GO)
 # Lua
 PASS_LUA=$(lua -W ./lua/main.lua $PASS_BASH)
 
-echo $PASS_LUA
+# Javascript
+PASS_JS=$(node ./js/main.js $PASS_LUA)
+
+echo $PASS_JS
